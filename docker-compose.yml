@@ -13,6 +13,8 @@ services:
     build: ./docker/php
     volumes:
      - .:/var/www/html
+     - vendor-store:/var/www/html/app/laravel/vendor # add
+     - node_modules-store:/var/www/html/app/laravel/node_modules # add
     depends_on:
       - mysql
   mysql:
@@ -28,3 +30,5 @@ services:
       - mysql-data:/var/lib/mysql
 volumes:
   mysql-data:
+  vendor-store: # add
+  node_modules-store: # add
