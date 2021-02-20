@@ -7,6 +7,7 @@
 
                     <div class="card-body">
                         I'm an example component.
+                        <div>{{ data.word }}</div>
                     </div>
                 </div>
             </div>
@@ -16,6 +17,9 @@
 
 <script>
     export default {
+        props: {
+            data: {},
+        },
         mounted() {
             console.log('Component mounted.')
         }

@@ -18,8 +18,12 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-
+Vue.config.devtools = true;
+import Vue from 'vue';
+// import Paginate from 'vuejs-paginate';
+Vue.component('test-paginate', require('./components/TestPaginate.vue').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('test-component', require('./components/TestComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,3 +34,17 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+// var items = [];
+ 
+// for(var i=1; i<=105; i++){
+//   items.push('item-'+i);
+// }
+
+// const paginate = new Vue({
+//     el: '#paginate',
+//     // components: {
+//     //     "paginate": Paginate
+//     //   },
+   
+// });

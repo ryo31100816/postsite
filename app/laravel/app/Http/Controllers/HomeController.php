@@ -18,4 +18,11 @@ class HomeController extends BaseAuthController
         $posts = Post::all();
         return view('home')->with('posts', $posts)->with('title', $title);
     }
+
+    public function test()
+    {
+        $title = 'postsite';
+        $posts = Post::all();
+        return view('vue_test')->with('posts', $posts)->with('title', $title);
+    }
 }

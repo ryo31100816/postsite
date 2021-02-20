@@ -17,7 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/post/{postId}', 'PostController@detail');
+Route::get('/comment', 'CommentController@index');
+
+Route::get('/test', 'HomeController@test')->name('test');
