@@ -27,15 +27,10 @@
 </template>     
 
 <script>
-var items = [];
- 
-for(var i=1; i<=105; i++){
-  items.push('item-' + i);
-}
 import paginate from 'vuejs-paginate';
 export default {
     components: {
-        paginate
+        paginate,
     },
     props: {
         posts: Array
@@ -50,7 +45,6 @@ export default {
     methods: {
         clickCallback: function(pageNum) {
             this.currentPage = Number(pageNum);
-            console.log('どうよ');
         }
     },
     computed: {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Events\MessagePusher;
 
 class HomeController extends BaseAuthController
 {
@@ -24,5 +25,26 @@ class HomeController extends BaseAuthController
         $title = 'postsite';
         $posts = Post::all();
         return view('vue_test')->with('posts', $posts)->with('title', $title);
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
+    }
+
+    public function ajax()
+    {
+        $posts = Post::all();
+        return json_encode($posts);
+    }
+
+    public function pusher(Request $request)
+    {
+        $message = $request->message;
+        $record = Post::create([
+            'user_id' => 10,
+            'contents' => $message
+        ]);
+        event(new MessagePusher($record));
     }
 }
