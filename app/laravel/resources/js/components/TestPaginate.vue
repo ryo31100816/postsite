@@ -4,14 +4,14 @@
             <li v-for="(value, key) in getItems" :key="key">
                 <div>
                     <p>投稿ID{{ value.id }}</p>
-                    <p>内容{{ value.contents }}</p>
+                    <input v-model="value.contents" type="text" />内容{{ value.contents }}
                 </div>
             </li>
         </ul>
         <paginate
             :page-count="getPageCount"
-            :page-range="5"
-            :margin-pages="2"
+            :page-range="1"
+            :margin-pages="0"
             :click-handler="clickCallback"
             :prev-text="'＜'"
             :next-text="'＞'"

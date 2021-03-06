@@ -19,11 +19,15 @@ Route::get('/', function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/post/{postId}', 'PostController@detail');
-Route::get('/comment', 'CommentController@index');
+Route::middleware(['auth'])->group(function() {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/post/{postId}', 'PostController@detail');
+    Route::get('/comment', 'CommentController@index');
 
-Route::get('/test', 'HomeController@test')->name('test');
-Route::post('/store', 'HomeController@store')->name('store');
-Route::get('/ajax', 'HomeController@ajax');
-Route::post('/ajax/pusher', 'HomeController@pusher');
+    Route::get('/test', 'HomeController@test')->name('test');
+    Route::get('/spa', 'HomeController@spa')->name('spa');
+
+    Route::post('/store', 'HomeController@store')->name('store');
+    Route::get('/ajax', 'HomeController@ajax');
+    Route::post('/ajax/pusher', 'HomeController@pusher');
+});

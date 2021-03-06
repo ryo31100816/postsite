@@ -15,6 +15,9 @@
 
         <pusher-component></pusher-component>
 
+        	
+        <x-testcomponent id="2" /> 
+
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
   

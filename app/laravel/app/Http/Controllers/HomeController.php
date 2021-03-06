@@ -27,6 +27,13 @@ class HomeController extends BaseAuthController
         return view('vue_test')->with('posts', $posts)->with('title', $title);
     }
 
+    public function spa()
+    {
+        $title = 'postsite';
+        $posts = Post::all();
+        return view('spa')->with('posts', $posts)->with('title', $title);
+    }
+
     public function store(Request $request)
     {
         dd($request->all());
