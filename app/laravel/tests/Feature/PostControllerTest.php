@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Post;
 
-class PostController extends TestCase
+class PostControllerTest extends TestCase
 {
     /**
      * A basic feature test example.
