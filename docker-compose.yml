@@ -48,6 +48,7 @@ services:
       - 5900:5900
     depends_on:
       - web
+    privileged: true
 volumes:
   mysql-data:
   vendor-store: # add
