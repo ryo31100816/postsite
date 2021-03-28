@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Events\MessagePusher;
+use App\Http\Requests\TestRequest;
+use Auth;
+use Log;
 
 class HomeController extends BaseAuthController
 {
@@ -34,15 +37,21 @@ class HomeController extends BaseAuthController
         return view('spa')->with('posts', $posts)->with('title', $title);
     }
 
-    public function store(Request $request)
+    public function store(TestRequest $request)
     {
-        dd($request->all());
+        dd($request->query());
     }
 
     public function ajax()
     {
-        $posts = Post::all();
-        return json_encode($posts);
+        // $posts = Post::all();
+        // return json_encode($posts);
+        $a = storage_path('bin/tes.csv');
+        $headers = ['Content-Type'=> 'application/plain',
+        'Content-Disposition' => "attachment; filename=tes.csv",
+        ];
+        Log::debug($a);
+        return response()->download($a, 'test.csv', $headers);
     }
 
     public function pusher(Request $request)

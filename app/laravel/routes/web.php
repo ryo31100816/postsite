@@ -22,7 +22,7 @@ Auth::routes(['verify' => true]);
 Route::middleware(['auth'])->group(function() {
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/post/{postId}', 'PostController@detail');
-    Route::get('/comment', 'CommentController@index');
+    // Route::get('/comment', 'CommentController@index');
 
     Route::get('/test', 'HomeController@test')->name('test');
     Route::get('/spa', 'HomeController@spa')->name('spa');
@@ -31,3 +31,4 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/ajax', 'HomeController@ajax');
     Route::post('/ajax/pusher', 'HomeController@pusher');
 });
+Route::post('/test/ajax', 'HomeController@ajax');
